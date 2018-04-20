@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <title>任务八：JavaScript和树（二）</title>
+</head>
+<body>
+  <div id="wrapper">
+    欧冠16强
+    <div class="layer-1">
+      巴塞罗那
+      <div class="layer-2">
+        皇家马德里
+        <div class="layer-3">拜仁慕尼黑</div>
+        <div class="layer-3">曼联</div>
+      </div>
+      <div class="layer-2">
+        尤文图斯
+        <div class="layer-3">曼城</div>
+        <div class="layer-3">利物浦</div>
+      </div>
+    </div>
+    <div class="layer-1">
+      托特纳姆热刺
+      <div class="layer-2">
+        塞维利亚
+        <div class="layer-3">巴塞尔</div>
+        <div class="layer-3">波尔图</div>
+      </div>
+      <div class="layer-2">
+        巴黎圣日尔曼
+        <div class="layer-3">罗马</div>
+      </div>
+    </div>
+    <div class="layer-1">
+      顿涅茨克矿工
+      <div class="layer-2">切尔西</div>
+    </div>
+    <div class="layer-1">贝西克塔斯</div>
+  </div>
+    <input type="button" id="preorder" value="前序遍历">
+    <input type="button" id="postorder" value="后序遍历">
+    <input type="text" id="search-text" placeholder="请输入查询项">
+    <input type="button" id="preorder-search" value="前序查询">
+    <input type="button" id="postorder-search" value="后序查询">
+    <input type="button" id="stop" value="停止动画">
+  <script src="main.js"></script>
+</body>
+</html>

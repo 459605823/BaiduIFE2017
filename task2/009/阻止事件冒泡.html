@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阻止事件冒泡</title>
+  <style>
+  #parent{
+    width: 400px;
+    height: 400px;
+    background-color: black;
+  }
+  #son{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+  a{
+    margin-top: 20px;
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    <div id="son"></div>
+  </div>
+  <a href="index.html">阻止元素默认行为</a>
+  <script>
+  //嵌套元素绑定相同事件，不阻止冒泡会导致两个事件同时触发
+  document.getElementById("parent").onclick = function(){
+    alert('我是父亲');
+    stopBubble();
+  }
+  document.getElementById("son").onclick = function(){
+    alert('我是儿子');
+    stopBubble();
+  }
+  document.getElementsByTagName("a")[0].onclick = function(){
+    alert('我没有跳转');
+    stopDefault();
+    //或者可以直接return false;
+  }
+    //JS原生方法阻止事件冒泡
+  function stopBubble(e){
+  　if(e&&e.stopPropagation){//非IE
+  　e.stopPropagation();
+   }
+  　else{//IE
+  　window.event.cancelBubble = true;
+  }
+ }
+ //JS阻止事件默认行为
+ function stopDefault(e) {
+　　//阻止默认浏览器动作
+　　if (e && e.preventDefault)
+　　e.preventDefault();
+　　//IE中阻止函数器默认动作的方式
+　　else
+　　window.event.returnValue = false;
+　　return false;
+　　}
+ /*Jquery方法阻止事件冒泡和阻止元素默认行为
+ function stopBubble(event){
+   event.stopPropagation();//阻止事件冒泡
+   event.preventDefault();//阻止默认行为
+   return false;//同时停止冒泡和阻止默认行为
+ }*/
+  </script>
+</body>
+</html>

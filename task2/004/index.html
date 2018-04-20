@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  ul{
+    margin-top: 30px;
+    margin-left: -50px;
+  }
+  ul li{
+    list-style-type: none;
+    display: inline;
+    background-color: red;
+    color:#FFFFFF;
+    padding: 20px;
+    margin-left: 10px;
+  }
+  </style>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="left-enter">左侧入</button>
+    <button id="right-enter">右侧入</button>
+    <button id="left-leave">左侧出</button>
+    <button id="right-leave">右侧出</button>
+    <ul></ul>
+  <script type="text/javascript">
+      var leftEnter = document.getElementById("left-enter");
+      var rightEnter = document.getElementById("right-enter");
+      var leftLeave = document.getElementById("left-leave");
+      var rightLeave = document.getElementById("right-leave");
+      var input = document.getElementById("input");
+      var ul = document.getElementsByTagName("ul");
+      function insert(dir){
+        if(input.value == ""){
+          alert('请输入需要输入的值');
+          input.focus();
+        }else if(isNaN(input.value)){
+          alert("只能输入数字");
+          input.value = "";
+          input.focus();
+        }else {
+          var li = document.createElement("li");
+          li.innerHTML = input.value;
+          li.setAttribute("onclick", "clickdel(this)");
+          if(dir === "left"){
+            ul[0].insertBefore(li,ul.firstChild);
+          }
+          if(dir === "right"){
+            ul[0].appendChild(li);
+          }
+        }
+      }
+      function del(direction){
+            if(ul[0].childNodes.length<=0){
+                alert("不存在元素可以删除");
+                return false;
+            } else{
+                if(direction === "left"){  //点击左侧按钮删除
+                    alert("删除数字：" +ul[0].firstChild.innerText +"！");
+                    ul[0].removeChild(ul[0].firstChild);
+                } else if(direction === "right"){  //点击右侧按钮删除
+                    alert("删除数字：" +ul[0].lastChild.innerText +"！");
+                    ul[0].removeChild(ul[0].lastChild);
+                }
+            }
+        }
+        function clickdel(divNode) {
+      	var pNode = divNode.parentNode;
+      	pNode.removeChild(divNode);
+      }
+      leftEnter.onclick = function(){
+        insert("left");
+      }
+      rightEnter.onclick = function(){
+        insert("right");
+      }
+      leftLeave.onclick = function(){
+        del("left");
+      }
+      rightLeave.onclick = function(){
+        del("right");
+      }
+  </script>
+</body>
+</html>

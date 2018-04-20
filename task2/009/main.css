@@ -1,0 +1,42 @@
+div{
+display: flex;
+flex-flow: row wrap;
+justify-content: space-around;
+align-items: center;
+background: #fff;
+margin: 5px;
+padding: 5px;
+border: 3px solid #000;
+border-radius: 4px;
+color: #000;
+cursor: pointer;
+}
+#wrapper{
+  float: left;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  width: 95%;
+  overflow: hidden;
+}
+
+input{
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #009688;
+  margin-left: 20px;
+  color:#e5edf5;
+  font-size: 20px;
+  box-shadow: 2px 2px #2f6b65;
+  outline: none;
+}
+input:hover{
+  background-color: #1f2121;
+}
+input[type=button]{
+  cursor: pointer;
+}
+.choosed{
+  background-color: #e61b26;
+}
