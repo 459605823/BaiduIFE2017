@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>任务三：表单（三）联动</title>
+  <style>
+  form{
+    position: relative;
+    left: 30%;
+    top: 100px;
+    width: 600px;
+    height: 500px;
+    background-color: #eee;
+    padding: 50px;
+    font-size: 20px;
+  }
+ #school,#company{
+   margin-top: 50px;
+ }
+ input[type=radio]{
+   margin-left: 0;
+   margin-top: 10px;
+ }
+ select,input{
+   height: 30px;
+   margin-left: 20px;
+   border-radius: 3px;
+ }
+ #bj-collage,#sh-collage,#nj-collage{
+   width: 200px;
+ }
+ #sh-collage,#nj-collage, #company{
+   display: none;
+ }
+ #workplace{
+   border: 1px solid grey;
+   outline: none;
+   font-size: 18px;
+ }
+  </style>
+</head>
+<body>
+<form>
+  <input type="radio" name="choice" checked="checked" class="tab-radio" id="student">
+  <label for="student">在校生</label>
+  <input type="radio" name="choice" class="tab-radio" id="nstudent">
+  <label for="nstudent">非在校生</label>
+  <div id="school">
+    <label for="city">学校</label>
+    <select id="city" name="city">
+      <option value="bj">北京</option>
+      <option value="sh">上海</option>
+      <option value="nj">南京</option>
+    </select>
+    <select id="bj-collage" name="collage">
+      <option value="bd">北京大学</option>
+      <option value="qh">清华大学</option>
+      <option value="bh">北京航空航天大学</option>
+      <option value="by">北京邮电大学</option>
+    </select>
+    <select id="sh-collage" name="collage">
+      <option value="fd">复旦大学</option>
+      <option value="tj">同济大学</option>
+      <option value="sj">上海交通大学</option>
+      <option value="sd">上海大学</option>
+    </select>
+    <select id="nj-collage" name="collage">
+      <option value="nd">南京大学</option>
+      <option value="dn">东南大学</option>
+      <option value="hh">河海大学</option>
+      <option value="ny">南京邮电大学</option>
+    </select>
+  </div>
+  <div id="company">
+    <label for="workplace">就业单位</label>
+    <input type="text" name="workplace" id="workplace">
+  </div>
+</form>
+<script src="main.js"></script>
+</body>
+</html>

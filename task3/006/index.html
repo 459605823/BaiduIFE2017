@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>任务六：UI组件之浮出层</title>
+  <style>
+  *{
+	margin:0;
+	padding:0;
+}
+#main{
+  margin: 0 auto;
+  position: relative;
+  left: 40%;
+  top: 200px;
+  height: 1500px;
+}
+  #button{
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  #button:hover{
+    background-color: red;
+    color: #FFFFFF;
+  }
+  #shadow{
+   position: fixed;
+   top:0;
+   left:0;
+   z-index: 0;/*小于0时不行*/
+   width: 100%;
+   background-color: #000;
+   opacity: .2;
+  }
+  #layer{
+	position:fixed;
+	width:400px;
+	height:200px;
+	background-color:#eeeeee;
+	border:1px solid #aaaaaa;
+	z-index:1;/*值要大于shadow，使其浮动在shadow上方*/
+	top:50%;
+	left:50%;
+	margin-left:-200px;
+	margin-top:-100px;
+}
+#header{
+  border-bottom:1px solid #aaaaaa;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  padding-left: 8px;
+}
+#article{
+  height:159px;
+  background-color:#ffffff;
+  padding-left:10px;
+  padding-right:20px;
+  font-size: 14px;
+}
+#article p{
+  height:40px;
+	line-height:40px;
+}
+#button1,
+#button2{
+  width:80px;
+height:35px;
+background-color:#eeeeee;
+border:1px solid #aaaaaa;
+margin-top:60px;
+margin-left:180px;
+}
+#button2{
+  margin-left:20px;
+}
+  </style>
+</head>
+<body>
+  <div id="main">
+  <h1>任务六：UI组件之浮出层</h1>
+  <button id="button">弹出浮动层</button>
+  </div>
+<script src="main.js"></script>
+</body>
+</html>

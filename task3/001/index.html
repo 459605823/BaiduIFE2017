@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>任务一：表单（一）单个表单项的检验</title>
+  <style>
+  body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  form{
+  background-color: #eee;
+  width: 30%;
+  height: 500px;
+  position: relative;
+  }
+  .form-group{
+position: absolute;
+top: 15%;
+left: 15%;
+  }
+  .form-group label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  #username{
+    height: 20px;
+    margin-right: 10px;
+    width: 250px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    outline: none;/*表单验证后改变边框颜色，防止颜色覆盖*/
+  }
+  #test{
+    padding: 5px 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #0c66dc;
+    color: #FFFFFF;
+    border: none;
+  }
+  #info{
+    font-size: 15px;
+    color: grey;
+    position: absolute;
+    left: 19%;
+  }
+  </style>
+</head>
+<body>
+<form>
+  <div class="form-group">
+<label for="username">用户名</label>
+<input type="text" name="username" id="username">
+<button id="test">验证</button>
+<p id="info">必填，长度为4-16个字符</p>
+</div>
+</form>
+<script>
+function formTest(){
+  var value = document.getElementById("username").value;
+  var codeVal;
+  var sum = 0;
+  var len = value.length;
+  var info = document.getElementById("info");
+    for(var i=0;i<len;i++){
+      codeVal = value.charCodeAt(i);//将每个字符转化为字符编码
+      if(codeVal>=0x00 && 0xFF>=codeVal){//当字符编码值在0x00-0xFF之间为英文，其余为数字
+        sum++;
+      }else{
+        sum+=2;
+      }
+    }
+    if(sum>3 && sum<17){
+     info.innerHTML = "格式正确";
+     info.style.color = "green";
+     document.getElementById("username").style.borderColor = "green";
+     document.getElementById("username").focus();
+   }else{
+     info.innerHTML = "格式错误";
+     info.style.color = "red";
+     document.getElementById("username").style.borderColor = "red";
+     document.getElementById("username").focus();
+   }
+}
+document.getElementById("test").onclick = function(){
+  formTest();
+  return false;//取消元素默认行为
+}
+</script>
+</body>
+</html>

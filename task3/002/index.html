@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>任务二：表单（二）多个表单项的动态校验</title>
+  <style>
+  body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img1.jpg);
+  }
+  form{
+  background-color: RGBA(238,238,238,0.4);
+  width: 40%;
+  height: 700px;
+  position: relative;
+  }
+  .form-group{
+  position: relative;
+  margin-top: 80px;
+  right: 25%;
+  text-align:right;/*文字右对齐很重要*/
+  }
+  .form-group label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  input{
+    height: 30px;
+    margin-right: 10px;
+    width: 350px;
+    font-size: 20px;
+    border: 1px solid #7d7575;
+    border-radius: 5px;
+    outline: none;/*表单验证后改变边框颜色，防止颜色覆盖*/
+  }
+  #info-username,
+  #info-email,
+  #info-number,
+  #info-password,
+  #info-passwordConfirm{
+    font-size: 15px;
+    color: black;
+    position: absolute;
+    left: 53%;
+    top: 55%;
+  }
+  input[type=submit]{
+    position: absolute;
+    width: 100px;
+    height: 45px;
+    left: 45%;
+    margin-top: 30px;
+    background-color: #0c66dc;
+    color: #FFFFFF;
+  }
+  </style>
+</head>
+<body>
+ <form>
+   <div class="form-group">
+   <label for="username">用户名</label>
+   <input type="text" name="username" id="username">
+   <p id="info-username"></p>
+   </div>
+   <div class="form-group">
+   <label for="password">密码</label>
+   <input type="password" name="password" id="password" >
+   <p id="info-password"></p>
+   </div>
+    <div class="form-group">
+   <label for="password-confirm">密码确认</label>
+   <input type="password" name="password-confirm" id="password-confirm" >
+   <p id="info-passwordConfirm"></p>
+    </div>
+    <div class="form-group">
+   <label for="email">邮箱</label>
+   <input type="email" name="email" id="email" >
+   <p id="info-email"></p>
+    </div>
+    <div class="form-group">
+   <label for="number">手机</label>
+   <input type="text" name="number" id="number" maxlength="11" >
+   <p id="info-number"></p>
+    </div>
+    <input type="submit" value="提交" id="submit">
+ </form>
+ <script src="main.js"></script>
+</body>
+</html>
