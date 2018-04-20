@@ -1,0 +1,142 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+.container{
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  flex-direction: column;
+  height: 1500px;
+}
+table{
+  width: 300px;
+}
+table td{
+  font-weight: bold;
+}
+thead td{
+  background-color: black;
+  color:#FFFFFF;
+}
+tbody tr:nth-child(even) td{
+  background-color: #eee;
+}
+tbody tr:nth-child(1) td{
+  color: red;
+}
+tbody tr:nth-child(2) td{
+  color: red;
+}
+tbody tr:nth-child(3) td{
+  color: red;
+}
+input{
+  width: 200px;
+  margin-top: 20px;
+}
+#active-input{
+  -webkit-transition: .3s ease-in;
+  -o-transition: .3s ease-in;
+  transition: .3s ease-in;
+}
+#active-input:active{
+  transform: scale(2);
+}
+#transform-input{
+  -webkit-transition: 1s ease-in;
+  -o-transition: 1s ease-in;
+  transition: 1s ease-in;
+}
+#transform-input:focus{
+  transform: scale(2);
+}
+.resize-box{
+  background-color: rgba(0,188,212,0.2);
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+  resize: both;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #06C;
+}
+.loop-wrap{
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.loop-images-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400%;
+  height: 100%;
+  font-size: 0;
+  transform: translate(0,0);
+  animation: loop 8s linear infinite;
+}
+.loop-img{
+  width: 500px;
+  height: 300px;
+}
+@keyframes loop {
+  0%{transform:translate(0,0);}
+  15%{transform:translate(0,0);}
+  20%{transform:translate(-25%,0);}
+  35%{transform:translate(-25%,0);}
+  40%{transform:translate(-50%,0);}
+  55%{transform:translate(-50%,0);}
+  60%{transform:translate(-75%,0);}
+  75%{transform:translate(-75%,0);}
+  80%{transform:translate(-0,0);}
+}
+.green{
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 20px;
+  background: green;
+}
+.btn-group{
+  position: absolute;
+  left: 350px;
+  top: 270px;
+  z-index: 99;
+}
+.button{
+  display: inline;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  background-color:rgba(238,245,238,0.3);
+}
+.button a{
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px;
+}
+.blue{
+  height: 100%;
+  width: 250px;
+  background-color: blue;
+  position: absolute;
+  z-index:-1;
+  top: 0;
+  left: 0;
+}
+.full-blue{
+  width: 500px;
+  height: 100%;
+  background-color: blue;
+  position: absolute;
+  z-index:-1;
+  top: 0;
+  left: 0;
+}
+:target{
+  z-index: 1;
+}
