@@ -1,0 +1,112 @@
+p{
+  margin: 0;
+}
+
+.container{
+  margin: 0 auto;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #eee;
+}
+.pic{
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.pic img{
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  animation: rotate 8s infinite linear;
+  transform-origin: center;
+}
+@keyframes rotate {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+.main{
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.song-name{
+  font-size: 30px;
+  margin: 0;
+}
+.singer-name{
+  color: #5a5656;
+  margin-top: 5px;
+}
+.time-volume-wrapper{
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.time-volume-wrapper .time {
+  color: #929292;
+}
+.time i{
+  font-style: normal;
+}
+.time{
+  margin-right: -180px;
+}
+.volume{
+  width: 200px;
+  display: inline-block;
+  float: right;
+  margin-left: 50px;
+}
+.volume i{
+  float: left;
+}
+.volume-bar-wrapper{
+  width: 0px;
+  height: 5px;
+  background-color: #ddd;
+  position: absolute;
+  left: 65%;
+  top: 8px;
+  transition: all .8s;
+}
+.volume-bar{
+  width: 100%;
+  background-color: green;
+  height: 5px;
+}
+#volume{
+  font-size: 18px;
+}
+.sm-btn-group{
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+.sm-btn-group i{
+  font-size: 25px;
+}
+.progress-bar{
+  cursor: pointer;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 30px;
+}
+#past-progress-bar{
+  height: 5px;
+  background-color: green;
+  width: 0%;
+}
+.function-btn-group{
+  width: 50%;
+  margin-left: 125px;
+  margin-bottom: 50px;
+  justify-content: space-around;
+  display: flex;
+}
+.function-btn-group i{
+  font-size: 60px;
+}

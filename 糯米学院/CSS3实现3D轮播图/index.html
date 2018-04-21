@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  .stage{
+    perspective: 800px;/*核心代码*/
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    padding-top: 150px;
+    margin: 0 auto;
+  }
+  .stage img{
+  height: 300px;
+  width: 300px;
+  position: absolute;/*核心代码:共用一个中心点*/
+  }
+  .container{
+    transform-style: preserve-3d;/*核心代码*/
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    animation: rotation 12s infinite linear;
+    transition: all 2s;
+  }
+  .container:hover{
+    animation-play-state: paused;/*当鼠标放到图片上时动画停止*/
+  }
+  @keyframes rotation {
+    0%{transform: rotateY(60deg);}
+    20%{transform: rotateY(120deg);}
+    40%{transform: rotateY(180deg);}
+    60%{transform: rotateY(240deg);}
+    80%{transform: rotateY(300deg);}
+    100%{transform: rotateY(360deg);}
+  }
+  #img1{
+    transform: rotateY(0deg) translateZ(500px);/*核心代码*/
+  }
+  #img2{
+    transform: rotateY(60deg) translateZ(500px);/*核心代码*/
+  }
+  #img3{
+    transform: rotateY(120deg) translateZ(500px);/*核心代码*/
+  }
+  #img4{
+    transform: rotateY(180deg) translateZ(500px);/*核心代码*/
+  }
+  #img5{
+    transform: rotateY(240deg) translateZ(500px);/*核心代码*/
+  }
+  #img6{
+    transform: rotateY(300deg) translateZ(500px);/*核心代码*/
+  }
+  </style>
+  <title>CSS3实现3D轮播图</title>
+</head>
+<body>
+  <div class="stage">
+    <div class="container" id="container">
+      <img src="xx.jpg" alt="" id="img1">
+      <img src="xx.jpg" alt="" id="img2">
+      <img src="xx.jpg" alt="" id="img3">
+      <img src="xx.jpg" alt="" id="img4">
+      <img src="xx.jpg" alt="" id="img5">
+      <img src="xx.jpg" alt="" id="img6">
+    </div>
+  </div>
+  <script>
+  (function(){
+    var container = document.getElementById("container"),
+        num = 0;
+    container.onclick = function(){
+      container.style.transform='rotateY('+60* ++num +'deg)';//点击切换(无法与动画共存)
+    }
+  })();
+  </script>
+</body>
+</html>

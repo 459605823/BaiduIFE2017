@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3饼状loading效果</title>
+  <style>
+  .container{
+    width: 30%;
+    margin: auto;
+    padding-left: 20%;
+    margin-top: 15%;
+  }
+  /* 两个圆交替显示，分别展现红饼和粉饼的变化 */
+  .full-circle{
+    width: 0;
+    height: 0;
+    border-radius: 50px;
+    position: absolute;
+    border: 50px solid rgb(255,41,140);
+    transform: rotate(45deg);
+    opacity: 1;
+    animation: right 1.6s steps(1, end) infinite;
+  }
+  .full-circle2{
+    width: 0;
+    height: 0;
+    border-radius: 50px;
+    position: absolute;
+    border: 50px solid rgb(251,139,189);
+    transform: rotate(45deg);
+    opacity: 1;
+    animation: left 1.6s steps(1, end) infinite;
+  }
+  /* 外侧3/4圆环 */
+  .outside-circle{
+    width: 140px;
+    height: 140px;
+    border: 2px solid rgb(255,41,140);
+    border-radius: 70px;
+    /* 设置一条边透明可得到3/4圆环 */
+    border-top-color: transparent;
+    background-color: transparent;
+    position: absolute;
+    animation: rotation 0.8s linear infinite;
+    top: -70px;
+    left: -70px;
+  }
+  @keyframes rotation{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+ }
+.left-half{
+ width: 0;
+ height: 0;
+ border-radius: 50px;
+ border: 50px solid rgb(255,41,140);
+ border-right-color: transparent;
+ border-top-color: transparent;
+ position: absolute;
+ top: -50px;
+ left: -50px;
+ animation: left 800ms steps(1, end) infinite;
+ opacity: 0;
+}
+.right-half{
+width: 0;
+height: 0;
+border-radius: 50px;
+border: 50px solid rgb(251,139,189);
+border-left-color: transparent;
+border-top-color: transparent;
+transform: rotate(-90deg);
+position: absolute;
+top: -50px;
+left: -50px;
+animation: right 800ms steps(1, end) infinite;
+opacity: 1;
+}
+@keyframes right {
+    0%     { opacity: 1; }
+   50%, 100% { opacity: 0; }
+}
+@keyframes left {
+    0%    { opacity: 0; }
+   50%, 100% { opacity: 1; }
+}
+.spiner{
+  width: 0;
+  height: 0;
+  border-radius: 50px;
+  border: 50px solid rgb(251,139,189);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  transform: rotate(90deg);
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  transform-origin: left right;
+  animation: spin 800ms infinite linear;
+}
+@keyframes spin {
+  from  { transform: rotate(90deg); }
+  50% { transform: rotate(-90deg); }
+  to {transform: rotate(-270deg);}
+}
+.full-circle2 .left-half{
+  border-color: rgb(251,139,189);
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+.full-circle2 .spiner,
+.full-circle2 .right-half{
+  border-color: rgb(255,41,140);
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+</style>
+</head>
+<body>
+  <!--参考张鑫旭博客 http://www.zhangxinxu.com/wordpress/2014/04/css3-pie-loading-waiting-animation/ -->
+<div class="container">
+  <div class="full-circle">
+    <div class="spiner"></div>
+    <div class="left-half"></div>
+    <div class="right-half"></div>
+    <div class="outside-circle"></div>
+  </div>
+  <div class="full-circle2">
+    <div class="spiner"></div>
+    <div class="left-half"></div>
+    <div class="right-half"></div>
+    <div class="outside-circle"></div>
+  </div>
+</div>
+</body>
+</html>
